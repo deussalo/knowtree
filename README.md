@@ -3,7 +3,7 @@
 Turn your coding agent into a private tutor. Generate knowledge dependency trees (like a video game skill tree) for any subject. 
 
 
-Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha. I am going to keep developing this for myself and hopefully a full blown developer will make a full blown program with the concept.
+Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha. I am going to keep developing this for myself and hopefully a full-blown developer will make a full-blown program with the concept.
 
 https://github.com/user-attachments/assets/760c5b35-d2c0-446c-a31a-bc1ffa5e8b9f
 
@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/a3517521-f8e4-49a3-94c1-c387ffff9d3b
 ## Overview
 
 This project sets up a interface between a webapp, server and Claude Agent who all share the project directory. Using the /tutor command initilizes the claude agent. 
-You can ask to generate a graph for any subject you want specifying, scope, depth, number of nodes within the graph and what your end goal is. For example 
+You can ask the agent to generate a graph for any subject and specifying, scope, depth, number of nodes within the graph and what your end goal is. For example 
 
 "I want to learn how to write my own CLI program in C, build me a knowledge graph which will guide me there. I am an absolute begginer with some bash knowledge. Make it no more than 25 nodes."
 
@@ -64,16 +64,17 @@ To enter a clasroom navigate to an available node and press enter classroom. The
 
 If you don't like the way the tutor is teaching then provide feedback and/or edit .claude/commands/tutor. Teaching style is personal preference.
 
+There is a also a specialist_style.md per graph that can be edited.
+
 Clear or compact context frequently.
 
-Sonnett 4.5 is fine for this task. You can experiment switching.
+Sonnett 4.5 is fine for this task. You can experiment switching models and using other agents besides Claude.
 
-I have tried to optimise token use as best as I can but unavoidably the best solution I could find was rather verbose prompt window. Besides long conversation and large graph generation the tutoring doesn't normally use too many tokens, and is spaced out over time.
+I have tried to optimise token use as best as I can but unavoidably the best solution I could find was rather verbose prompt window. Besides long conversation and large graph generation the tutoring doesn't normally use too many tokens as it is spaced out over time.
 
-Large graphs will take a while to generate. Claude may even create a script to batch it. I plan to specify a discrete large graph script for this in future.
+Large graphs will take a while to generate. The agent may even create a batch script when asked to create 100+ node graphs. I plan to specify a discrete large graph script for this in future.
 
 Ask claude for sources and references you can even specify to use a certain source if you like.
-
 
 
 ## Disclaimer
@@ -88,9 +89,9 @@ Will see what tools become available from providers and how that may change the 
 
 I would like to add FSRS (Free Spaced Repition Scheduler) to do reviews on previously completed nodes.
 
-Nested graphs would be a cool idea to explore. The idea is the same as current graph gen but starting at a meta level and just asking for broad headings.
+Nested graphs would be a cool idea to explore. The idea is the same as current graph gen but starting at a meta level and just generating broad headings.
 
-You would only need to lazy load and generate descending levels on demand when node is opened.
+You would only need to lazy load and generate descending levels on demand when a node is opened.
 
 Here is an example:
 
@@ -128,13 +129,12 @@ I wanted this same learning experience for every/any subject.
 I found this repo from Erik Bjare 9 years ago describing these ideas and other similiar projects
 https://github.com/ErikBjare/KnowTree
 
-If anyone else knows of similiar, that isn't a corporate LMS, I would love to know.
+If anyone else knows of similiar, that isn't just a corporate LMS, I would love to know.
 
 
 ## Vibe Code Disclaimer:
 
 This is heavily vibecoded. I worked out the entire structure on paper over the course of two weeks and some chats with clever friends.
-But once the plan was on paper I wanted to make it real. Being a father, business owner and non-programmer -- that probably would never have happened! So despite my reservations about vibecoding I appreciate the fact that someone like me can test out ideas and make them
-real with only a spare 10 minutes here of there. I would love for some serious engineers to make this a fully fledged program. Or perhaps I will use the program to help make me become a 'serious engineer' and do it myself!
+But once the plan was on paper I wanted to make it real. Being a father, business owner and non-programmer -- that probably would never have happened! So despite my reservations about vibecoding I appreciate the fact that someone like me can test out ideas and make them real with only a spare 10 minutes here or there. I would love for some serious engineers to make this a fully fledged program. Or perhaps I will use the program to help make me become a 'serious engineer' and do it myself!
 
 
