@@ -3,7 +3,7 @@
 Turn your coding agent into a private tutor. Generate knowledge dependency trees (like a video game skill tree) for any subject. 
 
 
-Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha.
+Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha. I am going to keep developing this for myself and hopefully a full blown developer will make a full blown program with the concept.
 
 https://github.com/user-attachments/assets/760c5b35-d2c0-446c-a31a-bc1ffa5e8b9f
 
@@ -28,6 +28,8 @@ A node is a topic consisting of a linear sequence of subtopics. You enter a clas
 
 ## Installation
 
+I've included the js libraries used.
+
 Fork/Clone this repo.
 
 Build the server with
@@ -51,7 +53,7 @@ To specify port but will need to update claude's prompts.
 cd and start claude
 Use the /tutor command
 
-Explore the Knowtree-Tutorial graph for more info.
+Explore the 'Knowtree-Tutorial' graph for more info.
 
 Ask claude to generate new graphs.
 
@@ -66,7 +68,7 @@ Clear or compact context frequently.
 
 Sonnett 4.5 is fine for this task. You can experiment switching.
 
-I have tried to optimise token use as best as I can.
+I have tried to optimise token use as best as I can but unavoidably the best solution I could find was rather verbose prompt window. Besides long conversation and large graph generation the tutoring doesn't normally use too many tokens, and is spaced out over time.
 
 Large graphs will take a while to generate. Claude may even create a script to batch it. I plan to specify a discrete large graph script for this in future.
 
@@ -123,7 +125,7 @@ My older brother forced me to do Khan Academy and it had an awesome "constellati
 I filled in my knowledge gaps and beyond and jumped to grades within a year. Turns out I actually enjoyed mathematics and I just needed to fill in the blanks.
 I wanted this same learning experience for every/any subject.
 
-I found this repo from 9 years ago describing these ideas and other similiar projects
+I found this repo from Erik Bjare 9 years ago describing these ideas and other similiar projects
 https://github.com/ErikBjare/KnowTree
 
 If anyone else knows of similiar, that isn't a corporate LMS, I would love to know.
@@ -132,9 +134,7 @@ If anyone else knows of similiar, that isn't a corporate LMS, I would love to kn
 ## Vibe Code Disclaimer:
 
 This is heavily vibecoded. I worked out the entire structure on paper over the course of two weeks and some chats with clever friends.
-But once the plan was on paper I wanted to make it real. Being a father, business owner and non-programmer -- that probably never
-would have happened! So despite my reservations about vibecoding I will commend the fact that someone like me can test out ideas and make them
-real with only a spare 10 minutes here of there. I would love for some serious engineers to make this a fully fledged program. Or perhaps I will use the program to become a super
-serious engineer and do it myself!
+But once the plan was on paper I wanted to make it real. Being a father, business owner and non-programmer -- that probably would never have happened! So despite my reservations about vibecoding I appreciate the fact that someone like me can test out ideas and make them
+real with only a spare 10 minutes here of there. I would love for some serious engineers to make this a fully fledged program. Or perhaps I will use the program to help make me become a 'serious engineer' and do it myself!
 
 
