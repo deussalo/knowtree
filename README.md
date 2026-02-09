@@ -58,23 +58,25 @@ Explore the 'Knowtree-Tutorial' graph for more info.
 Ask claude to generate new graphs.
 
 To enter a clasroom navigate to an available node and press enter classroom. Then let claude know "I'm ready to start" or "I have selected a new node, begin"
-
+- Large graphs will take a while to generate. The agent may even create a batch script when asked to create 100+ node graphs. I plan to specify a discrete large graph script for this in future.
 
 ## Tips
 
-If you don't like the way the tutor is teaching then provide feedback and/or edit .claude/commands/tutor. Teaching style is personal preference.
+- If you don't like the way the tutor is teaching then provide feedback and/or edit .claude/commands/tutor. Teaching style is personal preference.
 
-There is a also a specialist_style.md per graph that can be edited.
+- There is a also a specialist_style.md per graph that can be edited.
 
-Clear or compact context frequently.
+- Clear or compact context frequently.
 
-Sonnett 4.5 is fine for this task. You can experiment switching models and using other agents besides Claude.
+- Sonnett 4.5 is fine for this task. You can experiment switching models and using other agents besides Claude.
+  
+- Large graphs will take a while to generate. The agent may even create a batch script when asked to create 100+ node graphs. I plan to specify a discrete large graph script for this in future.
+  
+- Enter plan mode when asking for a graph or specify to use the AskUserQuestion tool so as to get a good spec of the graph before generating.
 
-I have tried to optimise token use as best as I can but unavoidably the best solution I could find was rather verbose prompt window. Besides long conversation and large graph generation the tutoring doesn't normally use too many tokens as it is spaced out over time.
+- I have tried to optimise token use as best as I can but unavoidably the best solution I could find was rather verbose prompt window. Besides long conversation and large graph generation the tutoring doesn't normally use too many tokens as it is spaced out over time.
 
-Large graphs will take a while to generate. The agent may even create a batch script when asked to create 100+ node graphs. I plan to specify a discrete large graph script for this in future.
-
-Ask claude for sources and references you can even specify to use a certain source if you like.
+- Ask claude for sources and references you can even specify to use a certain source if you like.
 
 
 ## Disclaimer
