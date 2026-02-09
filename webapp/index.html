@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>knowtree</title>
+  <link rel="stylesheet" href="/lib/katex/katex.min.css">
+  <link rel="stylesheet" href="/lib/highlight/github-dark.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Graph Selector View -->
+  <div id="selector-view" class="view">
+    <header class="selector-header">
+      <h1 class="logo">knowtree</h1>
+    </header>
+    <main class="selector-main">
+      <div id="graph-grid" class="graph-grid"></div>
+      <div id="no-graphs" class="no-graphs" style="display:none">
+        <p>No knowledge graphs found.</p>
+        <p>Run <code>/tutor</code> in Claude Code to create one.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Graph View -->
+  <div id="graph-view" class="view" style="display:none">
+    <header class="graph-header">
+      <button id="graph-back-btn" class="back-btn">&larr; Back</button>
+      <h2 id="graph-title" class="graph-title"></h2>
+      <span id="graph-progress" class="graph-progress"></span>
+    </header>
+    <main class="graph-main">
+      <div id="graph-container" class="graph-container"></div>
+      <div id="sidebar" class="sidebar" style="display:none">
+        <button id="sidebar-close" class="sidebar-close">&times;</button>
+        <h3 id="sidebar-title" class="sidebar-title"></h3>
+        <span id="sidebar-status" class="sidebar-status"></span>
+        <div id="sidebar-content" class="sidebar-content"></div>
+        <div class="sidebar-actions">
+          <p id="sidebar-hint" class="sidebar-hint"></p>
+          <button id="sidebar-action" class="sidebar-action-btn"></button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Classroom View -->
+  <div id="classroom-view" class="view" style="display:none">
+    <header class="classroom-header">
+      <button id="classroom-back-btn" class="back-btn">&larr; Back to Graph</button>
+      <h2 id="classroom-title" class="classroom-title"></h2>
+    </header>
+    <main class="classroom-main">
+      <div id="classroom-content" class="classroom-content">
+        <div class="waiting-message">Waiting for tutor to begin...</div>
+      </div>
+      <div id="graph-panel-tab" class="graph-panel-tab" style="display:none">
+        <span class="tab-text">Graph</span>
+      </div>
+      <div id="classroom-divider" class="classroom-divider" style="display:none"></div>
+      <div id="graph-panel" class="graph-panel" style="display:none">
+        <div id="plot-container" class="plot-container"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts: libs first -->
+  <script src="/lib/d3.min.js"></script>
+  <script src="/lib/dagre.min.js"></script>
+  <script src="/lib/markdown-it.min.js"></script>
+  <script src="/lib/katex/katex.min.js"></script>
+  <script src="/lib/highlight/highlight.min.js"></script>
+  <script src="/lib/mermaid.min.js"></script>
+  <script src="/lib/plotly.min.js"></script>
+  <!-- App scripts -->
+  <script src="/js/markdown-it-katex.js"></script>
+  <script src="/js/highlight-init.js"></script>
+  <script src="/js/polling.js"></script>
+  <script src="/js/graph.js"></script>
+  <script src="/js/classroom.js"></script>
+  <script src="/js/graph-panel.js"></script>
+  <script src="/js/graph-debug.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

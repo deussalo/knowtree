@@ -1,0 +1,15 @@
+{
+  "nodeId": "4",
+  "status": "completed",
+  "subconcepts": [
+    { "label": "Markdown rendering with markdown-it", "complete": true },
+    { "label": "KaTeX math: inline and display equations", "complete": true },
+    { "label": "Mermaid diagrams: flowcharts, sequence diagrams, and more", "complete": false },
+    { "label": "Syntax-highlighted code blocks", "complete": false },
+    { "label": "Tables and blockquote formatting", "complete": false },
+    { "label": "The graph panel: interactive Plotly charts", "complete": false }
+  ],
+  "attempts": 0,
+  "bestScore": null,
+  "classroomFile": "classroom.md"
+}

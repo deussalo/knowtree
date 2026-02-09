@@ -1,0 +1,15 @@
+{
+  "nodeId": "2",
+  "status": "completed",
+  "subconcepts": [
+    { "label": "The Socratic method: questions over lectures", "complete": true },
+    { "label": "Subconcepts: how topics are broken into learnable pieces", "complete": true },
+    { "label": "Session flow: startup, teaching, assessment", "complete": true },
+    { "label": "Visual aids: diagrams and plots generated during teaching", "complete": true },
+    { "label": "Resume and progress: picking up where you left off", "complete": true },
+    { "label": "Classroom.md: the live document that bridges terminal and browser", "complete": true }
+  ],
+  "attempts": 1,
+  "bestScore": 90,
+  "classroomFile": "classroom.md"
+}

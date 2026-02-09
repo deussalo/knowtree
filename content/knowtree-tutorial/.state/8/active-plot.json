@@ -1,0 +1,141 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [1, 0.9511, 0.809, 0.5878, 0.309, 0, -0.309, -0.5878, -0.809, -0.9511, -1, -0.9511, -0.809, -0.5878, -0.309, 0, 0.309, 0.5878, 0.809, 0.9511, 1],
+      "y": [0, 0.309, 0.5878, 0.809, 0.9511, 1, 0.9511, 0.809, 0.5878, 0.309, 0, -0.309, -0.5878, -0.809, -0.9511, -1, -0.9511, -0.809, -0.5878, -0.309, 0],
+      "line": { "color": "#555", "width": 1.5, "dash": "dot" },
+      "name": "Unit Circle",
+      "hoverinfo": "skip"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [2, 1.9021, 1.618, 1.1756, 0.618, 0, -0.618, -1.1756, -1.618, -1.9021, -2, -1.9021, -1.618, -1.1756, -0.618, 0, 0.618, 1.1756, 1.618, 1.9021, 2],
+      "y": [0, 0.618, 1.1756, 1.618, 1.9021, 2, 1.9021, 1.618, 1.1756, 0.618, 0, -0.618, -1.1756, -1.618, -1.9021, -2, -1.9021, -1.618, -1.1756, -0.618, 0],
+      "line": { "color": "#444", "width": 1, "dash": "dot" },
+      "name": "|z| = 2 circle",
+      "hoverinfo": "skip"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 1],
+      "y": [0, 1],
+      "line": { "color": "#e8a034", "width": 2.5 },
+      "name": "z = 1+i",
+      "showlegend": true
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 0],
+      "y": [0, 2],
+      "line": { "color": "#4a9eff", "width": 2.5 },
+      "name": "z² = 2i"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, -2],
+      "y": [0, 2],
+      "line": { "color": "#4caf50", "width": 2.5 },
+      "name": "z³ = −2+2i"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, -4],
+      "y": [0, 0],
+      "line": { "color": "#ef4444", "width": 2.5 },
+      "name": "z⁴ = −4"
+    },
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [1, 0, -2, -4],
+      "y": [1, 2, 2, 0],
+      "text": ["z", "z²", "z³", "z⁴"],
+      "textposition": ["top right", "top right", "top left", "bottom center"],
+      "textfont": { "color": "#dadada", "size": 13 },
+      "marker": { "size": 9, "color": ["#e8a034", "#4a9eff", "#4caf50", "#ef4444"] },
+      "showlegend": false,
+      "hovertext": ["z = 1+i\n|z| = √2, θ = 45°", "z² = 2i\n|z²| = 2, θ = 90°", "z³ = −2+2i\n|z³| = 2√2, θ = 135°", "z⁴ = −4\n|z⁴| = 4, θ = 180°"],
+      "hoverinfo": "text"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0.4, 0.3695, 0.2828, 0.1531, 0],
+      "y": [0, 0.1531, 0.2828, 0.3695, 0.4],
+      "line": { "color": "#e8a034", "width": 1.5 },
+      "showlegend": false,
+      "hoverinfo": "skip"
+    }
+  ],
+  "layout": {
+    "title": { "text": "Powers of z = 1+i : Multiplication as Rotation + Scaling", "font": { "color": "#dadada", "size": 15 } },
+    "xaxis": {
+      "title": "Re(z)",
+      "range": [-5.5, 3],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "dtick": 1
+    },
+    "yaxis": {
+      "title": "Im(z)",
+      "range": [-3.5, 3.5],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "scaleanchor": "x",
+      "dtick": 1
+    },
+    "plot_bgcolor": "#262626",
+    "paper_bgcolor": "#1e1e1e",
+    "font": { "color": "#dadada", "family": "3270NerdFont-Regular, Courier New, monospace" },
+    "showlegend": true,
+    "legend": { "font": { "color": "#dadada" }, "bgcolor": "rgba(30,30,30,0.8)" },
+    "margin": { "t": 50, "r": 30, "b": 50, "l": 50 },
+    "annotations": [
+      {
+        "x": 1, "y": 1, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true, "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#e8a034"
+      },
+      {
+        "x": 0, "y": 2, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true, "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#4a9eff"
+      },
+      {
+        "x": -2, "y": 2, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true, "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#4caf50"
+      },
+      {
+        "x": -4, "y": 0, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true, "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#ef4444"
+      },
+      {
+        "x": 0.35, "y": 0.12,
+        "text": "45°",
+        "showarrow": false,
+        "font": { "color": "#e8a034", "size": 12 }
+      },
+      {
+        "x": -2.5, "y": -1.5,
+        "text": "Each power rotates +45° and scales by √2",
+        "showarrow": false,
+        "font": { "color": "#888", "size": 11 }
+      }
+    ]
+  }
+}

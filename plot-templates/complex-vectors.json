@@ -1,0 +1,107 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [3, 1, 4],
+      "y": [2, 3, 5],
+      "text": ["z₁ = 3+2i", "z₂ = 1+3i", "z₁+z₂ = 4+5i"],
+      "textposition": ["top right", "top left", "top right"],
+      "textfont": { "color": "#dadada", "size": 12 },
+      "marker": { "size": 8, "color": ["#e8a034", "#4a9eff", "#4caf50"] },
+      "name": "Points",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 3],
+      "y": [0, 2],
+      "line": { "color": "#e8a034", "width": 2.5 },
+      "name": "z₁ = 3+2i"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 1],
+      "y": [0, 3],
+      "line": { "color": "#4a9eff", "width": 2.5 },
+      "name": "z₂ = 1+3i"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 4],
+      "y": [0, 5],
+      "line": { "color": "#4caf50", "width": 2.5 },
+      "name": "z₁ + z₂ = 4+5i"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [3, 4],
+      "y": [2, 5],
+      "line": { "color": "#4a9eff", "width": 1.5, "dash": "dash" },
+      "name": "Parallelogram",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [1, 4],
+      "y": [3, 5],
+      "line": { "color": "#e8a034", "width": 1.5, "dash": "dash" },
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": { "text": "Vector Addition on Complex Plane", "font": { "color": "#dadada", "size": 16 } },
+    "xaxis": {
+      "title": "Re(z)",
+      "range": [-1, 6],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "dtick": 1
+    },
+    "yaxis": {
+      "title": "Im(z)",
+      "range": [-1, 7],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "scaleanchor": "x",
+      "dtick": 1
+    },
+    "plot_bgcolor": "#262626",
+    "paper_bgcolor": "#1e1e1e",
+    "font": { "color": "#dadada", "family": "3270NerdFont-Regular, Courier New, monospace" },
+    "showlegend": true,
+    "legend": { "font": { "color": "#dadada" }, "bgcolor": "rgba(30,30,30,0.8)" },
+    "margin": { "t": 50, "r": 30, "b": 50, "l": 50 },
+    "annotations": [
+      {
+        "x": 3, "y": 2, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true,
+        "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#e8a034"
+      },
+      {
+        "x": 1, "y": 3, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true,
+        "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#4a9eff"
+      },
+      {
+        "x": 4, "y": 5, "ax": 0, "ay": 0,
+        "xref": "x", "yref": "y", "axref": "x", "ayref": "y",
+        "showarrow": true,
+        "arrowhead": 2, "arrowsize": 1.5, "arrowwidth": 2, "arrowcolor": "#4caf50"
+      }
+    ]
+  }
+}

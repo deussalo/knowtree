@@ -1,0 +1,14 @@
+{
+  "nodeId": "3",
+  "status": "in_progress",
+  "subconcepts": [
+    { "label": "Directory structure: content/, .state/, and graph folders", "complete": true },
+    { "label": "Node file format: [ID] Title.md naming convention", "complete": true },
+    { "label": "YAML frontmatter: ID, parents, and children fields", "complete": true },
+    { "label": "The .state directory: progress, classroom, and plot files", "complete": false },
+    { "label": "Graph discovery: how the server auto-detects graphs", "complete": false }
+  ],
+  "attempts": 0,
+  "bestScore": null,
+  "classroomFile": "classroom.md"
+}

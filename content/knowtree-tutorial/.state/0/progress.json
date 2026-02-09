@@ -1,0 +1,14 @@
+{
+  "nodeId": "0",
+  "status": "completed",
+  "subconcepts": [
+    { "label": "What is Knowtree and what problem it solves", "complete": true },
+    { "label": "Architecture overview: terminal tutor, Go server, browser webapp", "complete": true },
+    { "label": "The terminal + browser split and why it works", "complete": true },
+    { "label": "Getting started: launching the server and opening the webapp", "complete": true },
+    { "label": "Your first graph: navigating nodes and starting a session", "complete": true }
+  ],
+  "attempts": 1,
+  "bestScore": 92,
+  "classroomFile": "classroom.md"
+}

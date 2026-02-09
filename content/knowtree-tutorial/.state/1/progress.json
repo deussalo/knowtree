@@ -1,0 +1,15 @@
+{
+  "nodeId": "1",
+  "status": "completed",
+  "subconcepts": [
+    { "label": "DAG layout: how dagre arranges nodes bottom-to-top", "complete": true },
+    { "label": "Node colors and status indicators", "complete": true },
+    { "label": "Clicking nodes to select and preview content", "complete": true },
+    { "label": "Sidebar preview panel and node details", "complete": true },
+    { "label": "Zoom, pan, and fit-to-screen controls", "complete": true },
+    { "label": "Back navigation: Escape key and breadcrumbs", "complete": true }
+  ],
+  "attempts": 1,
+  "bestScore": 95,
+  "classroomFile": "classroom.md"
+}

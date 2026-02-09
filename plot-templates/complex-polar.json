@@ -1,0 +1,93 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [3],
+      "y": [2],
+      "text": ["z = 3 + 2i"],
+      "textposition": "top right",
+      "textfont": { "color": "#dadada", "size": 13 },
+      "marker": { "size": 10, "color": "#e8a034" },
+      "name": "z"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 3],
+      "y": [0, 2],
+      "line": { "color": "#e8a034", "width": 2.5 },
+      "name": "r = |z| ≈ 3.606"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [1, 0.9806, 0.9231, 0.8302, 0.7071, 0.5592, 0.3939, 0.2225],
+      "y": [0, 0.1961, 0.3846, 0.5576, 0.7071, 0.829, 0.9191, 0.9749],
+      "line": { "color": "#4a9eff", "width": 2 },
+      "name": "θ ≈ 33.69°"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 3],
+      "y": [0, 0],
+      "line": { "color": "#555", "width": 1, "dash": "dash" },
+      "name": "Real axis projection",
+      "showlegend": false
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [3, 3],
+      "y": [0, 2],
+      "line": { "color": "#555", "width": 1, "dash": "dash" },
+      "name": "Imaginary axis projection",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": { "text": "Polar Form: z = r·e^(iθ)", "font": { "color": "#dadada", "size": 16 } },
+    "xaxis": {
+      "title": "Re(z)",
+      "range": [-1, 5],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "dtick": 1
+    },
+    "yaxis": {
+      "title": "Im(z)",
+      "range": [-1, 4],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "scaleanchor": "x",
+      "dtick": 1
+    },
+    "plot_bgcolor": "#262626",
+    "paper_bgcolor": "#1e1e1e",
+    "font": { "color": "#dadada", "family": "3270NerdFont-Regular, Courier New, monospace" },
+    "showlegend": true,
+    "legend": { "font": { "color": "#dadada" }, "bgcolor": "rgba(30,30,30,0.8)" },
+    "margin": { "t": 50, "r": 30, "b": 50, "l": 50 },
+    "annotations": [
+      {
+        "x": 1.5, "y": 1.2,
+        "text": "r",
+        "showarrow": false,
+        "font": { "color": "#e8a034", "size": 14 }
+      },
+      {
+        "x": 0.7, "y": 0.25,
+        "text": "θ",
+        "showarrow": false,
+        "font": { "color": "#4a9eff", "size": 14 }
+      }
+    ]
+  }
+}

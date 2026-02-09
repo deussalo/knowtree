@@ -1,0 +1,85 @@
+{
+  "data": [
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [1, 0.9511, 0.809, 0.5878, 0.309, 0, -0.309, -0.5878, -0.809, -0.9511, -1, -0.9511, -0.809, -0.5878, -0.309, 0, 0.309, 0.5878, 0.809, 0.9511, 1],
+      "y": [0, 0.309, 0.5878, 0.809, 0.9511, 1, 0.9511, 0.809, 0.5878, 0.309, 0, -0.309, -0.5878, -0.809, -0.9511, -1, -0.9511, -0.809, -0.5878, -0.309, 0],
+      "line": { "color": "#4a9eff", "width": 1.5, "dash": "dot" },
+      "name": "Unit Circle"
+    },
+    {
+      "type": "scatter",
+      "mode": "markers+text",
+      "x": [1],
+      "y": [0],
+      "text": ["e^(i·0)"],
+      "textposition": "top right",
+      "textfont": { "color": "#dadada", "size": 13 },
+      "marker": { "size": 12, "color": "#e8a034" },
+      "name": "z = e^(iθ)"
+    },
+    {
+      "type": "scatter",
+      "mode": "lines",
+      "x": [0, 1],
+      "y": [0, 0],
+      "line": { "color": "#e8a034", "width": 2 },
+      "name": "Vector",
+      "showlegend": false
+    }
+  ],
+  "layout": {
+    "title": { "text": "Rotation on Unit Circle: e^(iθ)", "font": { "color": "#dadada", "size": 16 } },
+    "xaxis": {
+      "title": "Re(z)",
+      "range": [-1.8, 1.8],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "dtick": 0.5
+    },
+    "yaxis": {
+      "title": "Im(z)",
+      "range": [-1.8, 1.8],
+      "zeroline": true,
+      "zerolinecolor": "#888",
+      "zerolinewidth": 2,
+      "gridcolor": "#555",
+      "color": "#dadada",
+      "scaleanchor": "x",
+      "dtick": 0.5
+    },
+    "plot_bgcolor": "#262626",
+    "paper_bgcolor": "#1e1e1e",
+    "font": { "color": "#dadada", "family": "3270NerdFont-Regular, Courier New, monospace" },
+    "showlegend": true,
+    "legend": { "font": { "color": "#dadada" }, "bgcolor": "rgba(30,30,30,0.8)" },
+    "margin": { "t": 50, "r": 30, "b": 50, "l": 50 }
+  },
+  "animation": {
+    "frames": [
+      { "data": [null, { "x": [1], "y": [0], "text": ["e^(i·0)"] }, { "x": [0, 1], "y": [0, 0] }] },
+      { "data": [null, { "x": [0.866], "y": [0.5], "text": ["e^(iπ/6)"] }, { "x": [0, 0.866], "y": [0, 0.5] }] },
+      { "data": [null, { "x": [0.707], "y": [0.707], "text": ["e^(iπ/4)"] }, { "x": [0, 0.707], "y": [0, 0.707] }] },
+      { "data": [null, { "x": [0.5], "y": [0.866], "text": ["e^(iπ/3)"] }, { "x": [0, 0.5], "y": [0, 0.866] }] },
+      { "data": [null, { "x": [0], "y": [1], "text": ["e^(iπ/2)"] }, { "x": [0, 0], "y": [0, 1] }] },
+      { "data": [null, { "x": [-0.5], "y": [0.866], "text": ["e^(i2π/3)"] }, { "x": [0, -0.5], "y": [0, 0.866] }] },
+      { "data": [null, { "x": [-0.707], "y": [0.707], "text": ["e^(i3π/4)"] }, { "x": [0, -0.707], "y": [0, 0.707] }] },
+      { "data": [null, { "x": [-0.866], "y": [0.5], "text": ["e^(i5π/6)"] }, { "x": [0, -0.866], "y": [0, 0.5] }] },
+      { "data": [null, { "x": [-1], "y": [0], "text": ["e^(iπ)"] }, { "x": [0, -1], "y": [0, 0] }] },
+      { "data": [null, { "x": [-0.866], "y": [-0.5], "text": ["e^(i7π/6)"] }, { "x": [0, -0.866], "y": [0, -0.5] }] },
+      { "data": [null, { "x": [-0.707], "y": [-0.707], "text": ["e^(i5π/4)"] }, { "x": [0, -0.707], "y": [0, -0.707] }] },
+      { "data": [null, { "x": [-0.5], "y": [-0.866], "text": ["e^(i4π/3)"] }, { "x": [0, -0.5], "y": [0, -0.866] }] },
+      { "data": [null, { "x": [0], "y": [-1], "text": ["e^(i3π/2)"] }, { "x": [0, 0], "y": [0, -1] }] },
+      { "data": [null, { "x": [0.5], "y": [-0.866], "text": ["e^(i5π/3)"] }, { "x": [0, 0.5], "y": [0, -0.866] }] },
+      { "data": [null, { "x": [0.707], "y": [-0.707], "text": ["e^(i7π/4)"] }, { "x": [0, 0.707], "y": [0, -0.707] }] },
+      { "data": [null, { "x": [0.866], "y": [-0.5], "text": ["e^(i11π/6)"] }, { "x": [0, 0.866], "y": [0, -0.5] }] },
+      { "data": [null, { "x": [1], "y": [0], "text": ["e^(i2π)"] }, { "x": [0, 1], "y": [0, 0] }] }
+    ],
+    "transition": { "duration": 400 },
+    "frame": { "duration": 600 }
+  }
+}

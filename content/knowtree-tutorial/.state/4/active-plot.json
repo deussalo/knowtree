@@ -1,0 +1,70 @@
+{
+  "data": [
+    {
+      "type": "sankey",
+      "orientation": "h",
+      "node": {
+        "pad": 20,
+        "thickness": 25,
+        "line": { "color": "#555", "width": 1 },
+        "label": [
+          "/tutor (Terminal)",
+          "Filesystem",
+          "Go Server",
+          "Browser Webapp",
+          "classroom.md",
+          "progress.json",
+          "active-plot.json",
+          "Classroom Panel",
+          "Graph View",
+          "Graph Panel"
+        ],
+        "color": [
+          "#e8a034",
+          "#4a9eff",
+          "#4a9eff",
+          "#4a9eff",
+          "#6bc46b",
+          "#6bc46b",
+          "#6bc46b",
+          "#e8a034",
+          "#e8a034",
+          "#e8a034"
+        ]
+      },
+      "link": {
+        "source": [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3],
+        "target": [4, 5, 6, 2, 2, 2, 3, 3, 3, 7, 8, 9],
+        "value":  [3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1],
+        "color": [
+          "rgba(232,160,52,0.3)",
+          "rgba(232,160,52,0.3)",
+          "rgba(232,160,52,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(74,158,255,0.3)",
+          "rgba(232,160,52,0.3)",
+          "rgba(232,160,52,0.3)",
+          "rgba(232,160,52,0.3)"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Knowtree Data Flow",
+      "font": { "color": "#dadada", "size": 16 }
+    },
+    "plot_bgcolor": "#262626",
+    "paper_bgcolor": "#1e1e1e",
+    "font": {
+      "color": "#dadada",
+      "family": "3270NerdFont-Regular, Courier New, monospace",
+      "size": 12
+    },
+    "margin": { "t": 50, "r": 30, "b": 30, "l": 30 }
+  }
+}
