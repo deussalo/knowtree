@@ -5,15 +5,11 @@ Turn your coding agent into a private tutor. Generate knowledge dependency trees
 
 Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha.
 
-  <video width="600" controls>
-    <source src="examples/knowtree.mkv" type="video/x-matroska">
-    Your browser doesn't support HTML5 video.
-  </video>
+https://github.com/user-attachments/assets/760c5b35-d2c0-446c-a31a-bc1ffa5e8b9f
 
-  <video width="600" controls>
-    <source src="examples/knowtree3.mkv" type="video/x-matroska">
-    Your browser doesn't support HTML5 video.
-  </video>
+
+https://github.com/user-attachments/assets/a3517521-f8e4-49a3-94c1-c387ffff9d3b
+
 
 ## Overview
 
