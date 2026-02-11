@@ -3,7 +3,7 @@
 Turn your coding agent into a private tutor. Generate knowledge dependency trees (like a video game skill tree) for any subject. 
 
 
-Knowtree is a plugin/mod/harness that I have built with and for Claude Code. You could use other coding agents but I haven't had much success. It is very much in alpha. I am going to keep developing this for myself and hopefully a full-blown developer will make a full-blown program with the concept.
+Knowtree a webapp interface between you and an AI-Agent-Tutor. You could use other coding agents but I haven't tried. It is very much in alpha. I am going to keep developing this for myself and hopefully a full-blown developer will make a full-blown program with the concept.
 
 https://github.com/user-attachments/assets/760c5b35-d2c0-446c-a31a-bc1ffa5e8b9f
 
@@ -20,7 +20,7 @@ You can ask the agent to generate a graph for any subject; specifying scope, dep
 
 "I want to learn aerodynamics, but just enough to build and fly my own kites. 10 nodes."
 
-"Create a 100 node graph detailing the evolution of Large Language models, starting at the earliest itterations and progressing forward to present time" (This will use a few tokens)
+"Create a 80 node graph detailing the evolution of Large Language models, starting at the earliest itterations and progressing forward to present time" (This will use a few tokens)
 
 Once the graph is created you can navigate it's nodes. By default only the root node is available, further nodes must have all their prerequisite nodes completed before becoming available. This can be overridden of course if you wish to skip.
 
@@ -30,7 +30,7 @@ A node is a topic consisting of a linear sequence of subtopics as a guide. You e
 
 I've included the js libraries used.
 
-Fork/Clone this repo.
+Clone this repo.
 
 Build the server with
 
