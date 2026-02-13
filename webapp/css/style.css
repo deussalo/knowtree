@@ -10,6 +10,7 @@
   --completed: #4caf50;
   --error: #ef4444;
   --border: #444;
+  --edge: #dadada;
   --font: '3270NerdFont-Regular', 'Courier New', monospace;
 }
 
@@ -242,9 +243,6 @@ path.edge.highlight {
   stroke-width: 2.5 !important;
 }
 
-path.edge.dimmed {
-  opacity: 0.2;
-}
 
 
 /* === Sidebar === */

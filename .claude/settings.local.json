@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(go run:*)",
+      "Bash(chmod:*)",
+      "Bash(/home/salo/knowtree/validate-graph.sh:*)"
+    ]
+  }
+}
