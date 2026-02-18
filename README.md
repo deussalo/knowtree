@@ -10,6 +10,11 @@ https://github.com/user-attachments/assets/760c5b35-d2c0-446c-a31a-bc1ffa5e8b9f
 
 https://github.com/user-attachments/assets/a3517521-f8e4-49a3-94c1-c387ffff9d3b
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4c2051b1-49a8-46bf-973f-d1194357f5f9" />
+
+
+<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/993fcbd8-604d-4efe-9b01-e90bcec2268d" />
+
 
 ## Overview
 
@@ -125,7 +130,7 @@ Here is an example:
 
 I have had this idea in my head since using Khan Academy in High School. I was failing maths and was convinced I was a moron.
 My older brother forced me to do Khan Academy and it had an awesome "constellation" mathematics knowledge depency graph and a review scheduler.
-I filled in my knowledge gaps and beyond and jumped to grades within a year. Turns out I actually enjoyed mathematics and I just needed to fill in the blanks.
+I filled in my knowledge gaps and beyond and jumped two grades within a year. Turns out I actually enjoyed mathematics and I just needed to fill in the blanks.
 I wanted this same learning experience for every/any subject.
 
 I found this repo from Erik Bjare last updated 8 years ago describing these ideas and other similiar projects
