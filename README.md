@@ -130,7 +130,7 @@ Here is an example:
 
 I have had this idea in my head since using Khan Academy in High School. I was failing maths and was convinced I was a moron.
 My older brother forced me to do Khan Academy and it had an awesome "constellation" mathematics knowledge depency graph and a review scheduler.
-I filled in my knowledge gaps and beyond and jumped to grades within a year. Turns out I actually enjoyed mathematics and I just needed to fill in the blanks.
+I filled in my knowledge gaps and beyond and jumped two grades within a year. Turns out I actually enjoyed mathematics and I just needed to fill in the blanks.
 I wanted this same learning experience for every/any subject.
 
 I found this repo from Erik Bjare last updated 8 years ago describing these ideas and other similiar projects
