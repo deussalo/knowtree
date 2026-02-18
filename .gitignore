@@ -1,3 +1,5 @@
 .main
 **/.state/
 .claude/*.local.json
+.codex-skill/
+
