@@ -32,6 +32,7 @@
   let currentGraphId = null;
   let currentNodeId = null;
   let currentGraphData = null;
+  let classroomEvents = null;
 
   // --- Managers ---
   const polling = new PollingManager();
@@ -89,6 +90,9 @@
     graphView.style.display = name === 'graph' ? '' : 'none';
     classroomView.style.display = name === 'classroom' ? '' : 'none';
     currentView = name;
+    if (name !== 'classroom') {
+      closeClassroomEvents();
+    }
     if (name !== 'graph') graphDebug.hide();
   }
 
@@ -170,7 +174,7 @@
     postState({ view: 'graph', graphId });
     graphRenderer.setParams(graphDebug.getParams());
     loadGraph(graphId);
-    polling.start('graph', () => pollGraph(graphId), 2000);
+    polling.start('graph', () => pollGraph(graphId), 5000);
   }
 
   async function loadGraph(graphId) {
@@ -291,10 +295,32 @@
     // Initial load
     loadClassroom(graphId);
     loadPlot(graphId);
+    openClassroomEvents(graphId, String(nodeId));
+  }
 
-    // Start polling
-    polling.start('classroom', () => loadClassroom(graphId), 1000);
-    polling.start('plot', () => loadPlot(graphId), 1000);
+  function closeClassroomEvents() {
+    if (classroomEvents) {
+      classroomEvents.close();
+      classroomEvents = null;
+    }
+  }
+
+  function openClassroomEvents(graphId, nodeId) {
+    closeClassroomEvents();
+    const url = `/api/events?graphId=${encodeURIComponent(graphId)}&nodeId=${encodeURIComponent(nodeId)}`;
+    classroomEvents = new EventSource(url);
+
+    classroomEvents.addEventListener('classroom_updated', () => {
+      if (currentView !== 'classroom' || currentGraphId !== graphId || String(currentNodeId) !== String(nodeId)) return;
+      loadClassroom(graphId);
+    });
+
+    classroomEvents.addEventListener('plot_updated', () => {
+      if (currentView !== 'classroom' || currentGraphId !== graphId || String(currentNodeId) !== String(nodeId)) return;
+      loadPlot(graphId);
+    });
+
+    // Classroom view does not need action on progress events right now.
   }
 
   async function loadClassroom(graphId) {

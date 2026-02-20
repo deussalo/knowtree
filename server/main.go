@@ -10,12 +10,16 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 	"unicode"
+
+	"github.com/fsnotify/fsnotify"
 )
 
 // --- Structs ---
@@ -78,6 +82,7 @@ type OpenDirectoryRequest struct {
 // --- Globals ---
 
 var projectRoot string
+var sseHub = newSSEHub()
 
 // --- Main ---
 
@@ -91,10 +96,13 @@ func main() {
 	mux.HandleFunc("/api/graphs", handleGraphs)
 	mux.HandleFunc("/api/state", handleState)
 	mux.HandleFunc("/api/open-directory", handleOpenDirectory)
+	mux.HandleFunc("/api/events", handleEvents)
 	mux.HandleFunc("/api/graph/", handleGraphRoutes)
 	mux.Handle("/", http.FileServer(http.Dir(filepath.Join(projectRoot, "webapp"))))
 
 	handler := corsMiddleware(mux)
+
+	go startContentWatcher()
 
 	addr := fmt.Sprintf(":%d", *port)
 	log.Printf("Knowtree server starting on http://localhost:%d", *port)
@@ -164,6 +172,66 @@ func stateDir() string {
 
 func activeStatePath() string {
 	return filepath.Join(stateDir(), "active-state.json")
+}
+
+type sseSubscriber struct {
+	id      int
+	graphID string
+	nodeID  string
+	ch      chan string
+}
+
+type sseHubState struct {
+	mu          sync.RWMutex
+	nextID      int
+	subscribers map[int]*sseSubscriber
+}
+
+func newSSEHub() *sseHubState {
+	return &sseHubState{
+		subscribers: make(map[int]*sseSubscriber),
+	}
+}
+
+func (h *sseHubState) subscribe(graphID, nodeID string) *sseSubscriber {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+
+	h.nextID++
+	sub := &sseSubscriber{
+		id:      h.nextID,
+		graphID: graphID,
+		nodeID:  nodeID,
+		ch:      make(chan string, 16),
+	}
+	h.subscribers[sub.id] = sub
+	return sub
+}
+
+func (h *sseHubState) unsubscribe(sub *sseSubscriber) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	delete(h.subscribers, sub.id)
+	close(sub.ch)
+}
+
+func (h *sseHubState) publish(eventType, graphID, nodeID string) {
+	payload := fmt.Sprintf("{\"graphId\":%q,\"nodeId\":%q,\"type\":%q,\"ts\":%q}",
+		graphID, nodeID, eventType, time.Now().UTC().Format(time.RFC3339Nano))
+
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	for _, sub := range h.subscribers {
+		if sub.graphID != graphID || sub.nodeID != nodeID {
+			continue
+		}
+		msg := fmt.Sprintf("event: %s\ndata: %s\n\n", eventType, payload)
+		select {
+		case sub.ch <- msg:
+		default:
+			// Drop if subscriber is slow; next change will refresh.
+		}
+	}
 }
 
 // titleCase converts a directory name to a title.
@@ -427,11 +495,175 @@ func handleState(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		sseHub.publish("state_changed", state.GraphID, state.NodeID)
+
 		writeJSON(w, state)
 
 	default:
 		writeError(w, http.StatusMethodNotAllowed, "method not allowed")
 	}
+}
+
+func handleEvents(w http.ResponseWriter, r *http.Request) {
+	graphID := r.URL.Query().Get("graphId")
+	nodeID := r.URL.Query().Get("nodeId")
+	if graphID == "" || nodeID == "" {
+		writeError(w, http.StatusBadRequest, "graphId and nodeId are required")
+		return
+	}
+
+	flusher, ok := w.(http.Flusher)
+	if !ok {
+		writeError(w, http.StatusInternalServerError, "streaming unsupported")
+		return
+	}
+
+	w.Header().Set("Content-Type", "text/event-stream")
+	w.Header().Set("Cache-Control", "no-cache")
+	w.Header().Set("Connection", "keep-alive")
+	w.Header().Set("X-Accel-Buffering", "no")
+
+	sub := sseHub.subscribe(graphID, nodeID)
+	defer sseHub.unsubscribe(sub)
+
+	fmt.Fprintf(w, "event: ready\ndata: {\"graphId\":%q,\"nodeId\":%q}\n\n", graphID, nodeID)
+	flusher.Flush()
+
+	ticker := time.NewTicker(20 * time.Second)
+	defer ticker.Stop()
+
+	ctx := r.Context()
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			fmt.Fprint(w, ": keep-alive\n\n")
+			flusher.Flush()
+		case msg, ok := <-sub.ch:
+			if !ok {
+				return
+			}
+			fmt.Fprint(w, msg)
+			flusher.Flush()
+		}
+	}
+}
+
+func startContentWatcher() {
+	if err := os.MkdirAll(contentDir(), 0755); err != nil {
+		log.Printf("watcher: failed to ensure content dir: %v", err)
+		return
+	}
+
+	watcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		log.Printf("watcher: failed to create watcher: %v", err)
+		return
+	}
+
+	if err := addRecursiveWatches(watcher, contentDir()); err != nil {
+		log.Printf("watcher: failed initial watch setup: %v", err)
+	}
+
+	type pendingEvent struct {
+		eventType string
+		graphID   string
+		nodeID    string
+	}
+	var (
+		debounceMu sync.Mutex
+		debounce   = map[string]*time.Timer{}
+	)
+
+	schedulePublish := func(key string, ev pendingEvent) {
+		debounceMu.Lock()
+		defer debounceMu.Unlock()
+		if t, ok := debounce[key]; ok {
+			t.Stop()
+		}
+		debounce[key] = time.AfterFunc(150*time.Millisecond, func() {
+			sseHub.publish(ev.eventType, ev.graphID, ev.nodeID)
+			debounceMu.Lock()
+			delete(debounce, key)
+			debounceMu.Unlock()
+		})
+	}
+
+	for {
+		select {
+		case event, ok := <-watcher.Events:
+			if !ok {
+				return
+			}
+
+			// If a new directory appears, add it so nested files are watched.
+			if event.Op&fsnotify.Create == fsnotify.Create {
+				if info, err := os.Stat(event.Name); err == nil && info.IsDir() {
+					_ = addRecursiveWatches(watcher, event.Name)
+				}
+			}
+
+			if event.Op&(fsnotify.Write|fsnotify.Create|fsnotify.Rename) == 0 {
+				continue
+			}
+
+			eventType, graphID, nodeID, ok := classroomEventForPath(event.Name)
+			if !ok {
+				continue
+			}
+			key := eventType + "|" + graphID + "|" + nodeID
+			schedulePublish(key, pendingEvent{
+				eventType: eventType,
+				graphID:   graphID,
+				nodeID:    nodeID,
+			})
+		case err, ok := <-watcher.Errors:
+			if !ok {
+				return
+			}
+			log.Printf("watcher: error: %v", err)
+		}
+	}
+}
+
+func addRecursiveWatches(w *fsnotify.Watcher, root string) error {
+	return filepath.WalkDir(root, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+		if !d.IsDir() {
+			return nil
+		}
+		return w.Add(path)
+	})
+}
+
+var classroomPathRE = regexp.MustCompile(`^([^/]+)/\.state/([^/]+)/(classroom\.md|active-plot\.json|progress\.json)$`)
+
+func classroomEventForPath(path string) (eventType, graphID, nodeID string, ok bool) {
+	rel, err := filepath.Rel(contentDir(), path)
+	if err != nil {
+		return "", "", "", false
+	}
+	rel = filepath.ToSlash(rel)
+	m := classroomPathRE.FindStringSubmatch(rel)
+	if len(m) != 4 {
+		return "", "", "", false
+	}
+
+	switch m[3] {
+	case "classroom.md":
+		eventType = "classroom_updated"
+	case "active-plot.json":
+		eventType = "plot_updated"
+	case "progress.json":
+		eventType = "progress_updated"
+	default:
+		return "", "", "", false
+	}
+
+	return eventType, m[1], m[2], true
 }
 
 func handleGraphRoutes(w http.ResponseWriter, r *http.Request) {

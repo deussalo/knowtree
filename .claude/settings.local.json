@@ -4,8 +4,22 @@
       "Bash(ls:*)",
       "Bash(curl:*)",
       "Bash(go run:*)",
+      "Bash(bash scripts/kt-start-tutor.sh:*)",
+      "Bash(bash scripts/kt-start-class.sh:*)",
+      "Bash(bash scripts/kt-assessment-handler.sh:*)",
       "Bash(chmod:*)",
-      "Bash(/home/salo/knowtree/validate-graph.sh:*)"
+      "Bash(/home/salo/knowtree/validate-graph.sh:*)",
+      "Bash(go version:*)",
+      "Bash(pkill:*)",
+      "Bash(fuser:*)",
+      "Bash(go build:*)",
+      "Bash(/usr/local/go/bin/go build:*)",
+      "Bash($SHELL -c:*)",
+      "Bash($SHELL -i -c:*)",
+      "Bash(bash /home/deus/projects/knowtree-remux/knowtree/scripts/kt-start-tutor.sh)",
+      "Bash(bash /home/deus/projects/knowtree-remux/knowtree/scripts/kt-start-class.sh)",
+      "Bash(bash /home/deus/projects/knowtree-remux/knowtree/scripts/kt-assessment-handler.sh)",
+      "Bash(git checkout:*)"
     ]
   }
 }
